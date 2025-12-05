@@ -15,7 +15,7 @@ const SidebarLayout = () => {
       <SidebarHeader>Logistics</SidebarHeader>
       <SidebarContent className="flex gap-2 items-center flex-col p-4">
         {sidebarMenu.map((el) => {
-          const isActive = !!matchRoute({ to: el.path as any });
+          const isActive = !!matchRoute({ to: el.path as any});
 
           return (
             <Link to={el.path as any} className="w-full" key={el.path}>
