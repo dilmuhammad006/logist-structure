@@ -31,11 +31,11 @@ function RouteComponent() {
             <TableCell>{el.name}</TableCell>
             <TableCell>{el.age}</TableCell>
             <TableCell>{el.job}</TableCell>
-            <TableCell>{el.salary}$</TableCell>
+            <TableCell>{el.salary} $</TableCell>
           </TableRow>
         ))}
       </TableBody>
-      <TableCaption>Users salaary for a month in 2025</TableCaption>
+      <TableCaption>Users salary for a month in 2025</TableCaption>
     </Table>
   );
 }
