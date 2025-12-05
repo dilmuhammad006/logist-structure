@@ -1,4 +1,4 @@
-import { Link, useLocation } from "@tanstack/react-router";
+import { Link, useMatchRoute } from "@tanstack/react-router";
 import { sidebarMenu } from "./navigation";
 import {
   Sidebar,
@@ -8,14 +8,15 @@ import {
 } from "@/components/ui/sidebar";
 
 const SidebarLayout = () => {
-  const location = useLocation();
+  const matchRoute = useMatchRoute();
 
   return (
     <Sidebar>
       <SidebarHeader>Logistics</SidebarHeader>
       <SidebarContent className="flex gap-2 items-center flex-col p-4">
         {sidebarMenu.map((el) => {
-          const isActive = location.pathname === el.path;
+          const isActive = !!matchRoute({ to: el.path as any });
+
           return (
             <Link to={el.path as any} className="w-full" key={el.path}>
               <div
