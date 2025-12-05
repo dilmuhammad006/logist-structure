@@ -9,36 +9,20 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as ScheduleRouteImport } from './routes/schedule'
-import { Route as NavigationsRouteImport } from './routes/navigations'
 import { Route as LoginRouteImport } from './routes/login'
-import { Route as FinanceRouteImport } from './routes/finance'
-import { Route as AccountsRouteImport } from './routes/accounts'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ScheduleIndexRouteImport } from './routes/schedule/index'
+import { Route as NavigationsIndexRouteImport } from './routes/navigations/index'
+import { Route as FinanceIndexRouteImport } from './routes/finance/index'
+import { Route as AccountsIndexRouteImport } from './routes/accounts/index'
+import { Route as NavigationsNameRouteImport } from './routes/navigations/$name'
+import { Route as AccountsGarbageRouteImport } from './routes/accounts/garbage'
+import { Route as AccountsDriversRouteImport } from './routes/accounts/drivers'
+import { Route as AccountsCarsRouteImport } from './routes/accounts/cars'
 
-const ScheduleRoute = ScheduleRouteImport.update({
-  id: '/schedule',
-  path: '/schedule',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const NavigationsRoute = NavigationsRouteImport.update({
-  id: '/navigations',
-  path: '/navigations',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const LoginRoute = LoginRouteImport.update({
   id: '/login',
   path: '/login',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const FinanceRoute = FinanceRouteImport.update({
-  id: '/finance',
-  path: '/finance',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AccountsRoute = AccountsRouteImport.update({
-  id: '/accounts',
-  path: '/accounts',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -46,97 +30,143 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ScheduleIndexRoute = ScheduleIndexRouteImport.update({
+  id: '/schedule/',
+  path: '/schedule/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NavigationsIndexRoute = NavigationsIndexRouteImport.update({
+  id: '/navigations/',
+  path: '/navigations/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FinanceIndexRoute = FinanceIndexRouteImport.update({
+  id: '/finance/',
+  path: '/finance/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AccountsIndexRoute = AccountsIndexRouteImport.update({
+  id: '/accounts/',
+  path: '/accounts/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NavigationsNameRoute = NavigationsNameRouteImport.update({
+  id: '/navigations/$name',
+  path: '/navigations/$name',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AccountsGarbageRoute = AccountsGarbageRouteImport.update({
+  id: '/accounts/garbage',
+  path: '/accounts/garbage',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AccountsDriversRoute = AccountsDriversRouteImport.update({
+  id: '/accounts/drivers',
+  path: '/accounts/drivers',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AccountsCarsRoute = AccountsCarsRouteImport.update({
+  id: '/accounts/cars',
+  path: '/accounts/cars',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/accounts': typeof AccountsRoute
-  '/finance': typeof FinanceRoute
   '/login': typeof LoginRoute
-  '/navigations': typeof NavigationsRoute
-  '/schedule': typeof ScheduleRoute
+  '/accounts/cars': typeof AccountsCarsRoute
+  '/accounts/drivers': typeof AccountsDriversRoute
+  '/accounts/garbage': typeof AccountsGarbageRoute
+  '/navigations/$name': typeof NavigationsNameRoute
+  '/accounts': typeof AccountsIndexRoute
+  '/finance': typeof FinanceIndexRoute
+  '/navigations': typeof NavigationsIndexRoute
+  '/schedule': typeof ScheduleIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/accounts': typeof AccountsRoute
-  '/finance': typeof FinanceRoute
   '/login': typeof LoginRoute
-  '/navigations': typeof NavigationsRoute
-  '/schedule': typeof ScheduleRoute
+  '/accounts/cars': typeof AccountsCarsRoute
+  '/accounts/drivers': typeof AccountsDriversRoute
+  '/accounts/garbage': typeof AccountsGarbageRoute
+  '/navigations/$name': typeof NavigationsNameRoute
+  '/accounts': typeof AccountsIndexRoute
+  '/finance': typeof FinanceIndexRoute
+  '/navigations': typeof NavigationsIndexRoute
+  '/schedule': typeof ScheduleIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/accounts': typeof AccountsRoute
-  '/finance': typeof FinanceRoute
   '/login': typeof LoginRoute
-  '/navigations': typeof NavigationsRoute
-  '/schedule': typeof ScheduleRoute
+  '/accounts/cars': typeof AccountsCarsRoute
+  '/accounts/drivers': typeof AccountsDriversRoute
+  '/accounts/garbage': typeof AccountsGarbageRoute
+  '/navigations/$name': typeof NavigationsNameRoute
+  '/accounts/': typeof AccountsIndexRoute
+  '/finance/': typeof FinanceIndexRoute
+  '/navigations/': typeof NavigationsIndexRoute
+  '/schedule/': typeof ScheduleIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/login'
+    | '/accounts/cars'
+    | '/accounts/drivers'
+    | '/accounts/garbage'
+    | '/navigations/$name'
     | '/accounts'
     | '/finance'
-    | '/login'
     | '/navigations'
     | '/schedule'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/accounts' | '/finance' | '/login' | '/navigations' | '/schedule'
+  to:
+    | '/'
+    | '/login'
+    | '/accounts/cars'
+    | '/accounts/drivers'
+    | '/accounts/garbage'
+    | '/navigations/$name'
+    | '/accounts'
+    | '/finance'
+    | '/navigations'
+    | '/schedule'
   id:
     | '__root__'
     | '/'
-    | '/accounts'
-    | '/finance'
     | '/login'
-    | '/navigations'
-    | '/schedule'
+    | '/accounts/cars'
+    | '/accounts/drivers'
+    | '/accounts/garbage'
+    | '/navigations/$name'
+    | '/accounts/'
+    | '/finance/'
+    | '/navigations/'
+    | '/schedule/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  AccountsRoute: typeof AccountsRoute
-  FinanceRoute: typeof FinanceRoute
   LoginRoute: typeof LoginRoute
-  NavigationsRoute: typeof NavigationsRoute
-  ScheduleRoute: typeof ScheduleRoute
+  AccountsCarsRoute: typeof AccountsCarsRoute
+  AccountsDriversRoute: typeof AccountsDriversRoute
+  AccountsGarbageRoute: typeof AccountsGarbageRoute
+  NavigationsNameRoute: typeof NavigationsNameRoute
+  AccountsIndexRoute: typeof AccountsIndexRoute
+  FinanceIndexRoute: typeof FinanceIndexRoute
+  NavigationsIndexRoute: typeof NavigationsIndexRoute
+  ScheduleIndexRoute: typeof ScheduleIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/schedule': {
-      id: '/schedule'
-      path: '/schedule'
-      fullPath: '/schedule'
-      preLoaderRoute: typeof ScheduleRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/navigations': {
-      id: '/navigations'
-      path: '/navigations'
-      fullPath: '/navigations'
-      preLoaderRoute: typeof NavigationsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/login': {
       id: '/login'
       path: '/login'
       fullPath: '/login'
       preLoaderRoute: typeof LoginRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/finance': {
-      id: '/finance'
-      path: '/finance'
-      fullPath: '/finance'
-      preLoaderRoute: typeof FinanceRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/accounts': {
-      id: '/accounts'
-      path: '/accounts'
-      fullPath: '/accounts'
-      preLoaderRoute: typeof AccountsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -146,16 +176,76 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/schedule/': {
+      id: '/schedule/'
+      path: '/schedule'
+      fullPath: '/schedule'
+      preLoaderRoute: typeof ScheduleIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/navigations/': {
+      id: '/navigations/'
+      path: '/navigations'
+      fullPath: '/navigations'
+      preLoaderRoute: typeof NavigationsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/finance/': {
+      id: '/finance/'
+      path: '/finance'
+      fullPath: '/finance'
+      preLoaderRoute: typeof FinanceIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/accounts/': {
+      id: '/accounts/'
+      path: '/accounts'
+      fullPath: '/accounts'
+      preLoaderRoute: typeof AccountsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/navigations/$name': {
+      id: '/navigations/$name'
+      path: '/navigations/$name'
+      fullPath: '/navigations/$name'
+      preLoaderRoute: typeof NavigationsNameRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/accounts/garbage': {
+      id: '/accounts/garbage'
+      path: '/accounts/garbage'
+      fullPath: '/accounts/garbage'
+      preLoaderRoute: typeof AccountsGarbageRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/accounts/drivers': {
+      id: '/accounts/drivers'
+      path: '/accounts/drivers'
+      fullPath: '/accounts/drivers'
+      preLoaderRoute: typeof AccountsDriversRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/accounts/cars': {
+      id: '/accounts/cars'
+      path: '/accounts/cars'
+      fullPath: '/accounts/cars'
+      preLoaderRoute: typeof AccountsCarsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  AccountsRoute: AccountsRoute,
-  FinanceRoute: FinanceRoute,
   LoginRoute: LoginRoute,
-  NavigationsRoute: NavigationsRoute,
-  ScheduleRoute: ScheduleRoute,
+  AccountsCarsRoute: AccountsCarsRoute,
+  AccountsDriversRoute: AccountsDriversRoute,
+  AccountsGarbageRoute: AccountsGarbageRoute,
+  NavigationsNameRoute: NavigationsNameRoute,
+  AccountsIndexRoute: AccountsIndexRoute,
+  FinanceIndexRoute: FinanceIndexRoute,
+  NavigationsIndexRoute: NavigationsIndexRoute,
+  ScheduleIndexRoute: ScheduleIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

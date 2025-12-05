@@ -16,16 +16,16 @@ interface SidebarProps {
 
 export const sidebarMenu: SidebarProps[] = [
   { label: "Bosh sahifa", path: "/", icon: Home },
-  { label: "Marshrut", path: "/navigations", icon: Navigation },
-  {
-    label: "Moliya",
-    path: "/finance",
-    icon: DollarSign,
-  },
-  { label: "Ish jadvali", path: "/schedule", icon: Calendar },
   {
     label: "Hisoblar",
-    path: "/accounts",
+    path: "/accounts/",
     icon: CreditCard,
   },
+  { label: "Marshrut", path: "/navigations/", icon: Navigation },
+  {
+    label: "Moliya",
+    path: "/finance/",
+    icon: DollarSign,
+  },
+  { label: "Ish jadvali", path: "/schedule/", icon: Calendar },
 ];

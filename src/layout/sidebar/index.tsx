@@ -1,23 +1,35 @@
-import { Link } from "@tanstack/react-router";
+import { Link, useLocation } from "@tanstack/react-router";
 import { sidebarMenu } from "./navigation";
-import { Sidebar } from "@/components/ui/sidebar";
+import {
+  Sidebar,
+  SidebarContent,
+  SidebarFooter,
+  SidebarHeader,
+} from "@/components/ui/sidebar";
 
 const SidebarLayout = () => {
+  const location = useLocation();
+
   return (
     <Sidebar>
-      <div className="flex gap-2 items-center flex-col p-4">
-        {sidebarMenu.map((el) => (
-          <Link to={el.path} className="w-full">
-            <div
-              key={el.label}
-              className="w-full border rounded p-2 flex items-center gap-2"
-            >
-              {el.icon && <el.icon />}
-              <p>{el.label}</p>
-            </div>
-          </Link>
-        ))}
-      </div>
+      <SidebarHeader>Logistics</SidebarHeader>
+      <SidebarContent className="flex gap-2 items-center flex-col p-4">
+        {sidebarMenu.map((el) => {
+          const isActive = location.pathname === el.path;
+          return (
+            <Link to={el.path as any} className="w-full" key={el.path}>
+              <div
+                key={el.label}
+                className={`w-full p-2 rounded flex items-center gap-2 ${isActive ? "bg-slate-500" : ""}`}
+              >
+                {el.icon && <el.icon />}
+                <p>{el.label}</p>
+              </div>
+            </Link>
+          );
+        })}
+      </SidebarContent>
+      <SidebarFooter>Logout</SidebarFooter>
     </Sidebar>
   );
 };
