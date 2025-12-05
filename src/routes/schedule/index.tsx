@@ -17,12 +17,20 @@ const sonners = [
   {
     type: "loading",
   },
+  {
+    type: "warning",
+  },
+  {
+    type: "info",
+  },
 ];
 const handleToast = (type: string) => {
   console.log("as");
   if (type === "default") toast("Default toast");
   else if (type === "success") toast.success("Success toast");
   else if (type === "error") toast.error("Error toast");
+  else if (type === "warning") toast.warning("Warning toast");
+  else if (type === "info") toast.info("Info toast");
   else toast.loading("Loading toast");
 };
 
