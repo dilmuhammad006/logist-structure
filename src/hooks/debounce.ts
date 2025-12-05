@@ -9,7 +9,7 @@ const useDebounce = (value: string, delay: number) => {
     }, delay);
 
     return () => clearTimeout(timeOut);
-  }, [result, delay]);
+  }, [value, delay]);
 
   return result;
 };

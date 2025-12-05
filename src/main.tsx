@@ -10,6 +10,7 @@ import { routeTree } from "./routeTree.gen";
 import "./styles.css";
 import reportWebVitals from "./reportWebVitals.ts";
 import ThemeProvider from "./components/theme/index.ts";
+// import AuthProvider from "./components/auth/index.tsx";
 
 // Create a new router instance
 const router = createRouter({
@@ -36,10 +37,12 @@ if (rootElement && !rootElement.innerHTML) {
   root.render(
     <StrictMode>
       <ThemeProvider>
+        {/* <AuthProvider> */}
         <QueryClientProvider client={client}>
           <RouterProvider router={router} />
           <Toaster />
         </QueryClientProvider>
+        {/* </AuthProvider> */}
       </ThemeProvider>
     </StrictMode>
   );

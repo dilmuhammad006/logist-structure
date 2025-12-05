@@ -6,15 +6,26 @@ interface ThemeStore {
   setTheme: (value: "dark" | "light") => void;
 }
 
+const getInitialTheme = (): "dark" | "light" => {
+  if (typeof window === "undefined") return "dark";
+  const saved = localStorage.getItem("theme");
+  return saved === "light" ? "light" : "dark";
+};
+
 const useTheme = create<ThemeStore>((set) => ({
-  theme: "dark",
+  theme: getInitialTheme(),
 
   toggleTheme: () =>
-    set((state) => ({
-      theme: state.theme === "dark" ? "light" : "dark",
-    })),
+    set((state) => {
+      const newTheme = state.theme === "dark" ? "light" : "dark";
+      localStorage.setItem("theme", newTheme);
+      return { theme: newTheme };
+    }),
 
-  setTheme: (value) => set({ theme: value }),
+  setTheme: (value) => {
+    localStorage.setItem("theme", value);
+    set({ theme: value });
+  },
 }));
 
 export default useTheme;
