@@ -36,9 +36,9 @@ function RouteComponent() {
         ))}
       </TabsList>
       {tabs.map((tab) => (
-        <TabsContent key={tab.value} value={tab.value} className="mt-6" >
+        <TabsContent key={tab.value} value={tab.value} className="mt-6">
           <div className="min-h-[100px] flex items-start">
-            <p className="text-muted-foreground text-sm">{tab.content}</p>
+            <div className="text-muted-foreground text-sm">{tab.content}</div>
           </div>
         </TabsContent>
       ))}

@@ -29,7 +29,11 @@ function RouteComponent() {
   return (
     <div>
       {city.map((el) => (
-        <Button key={el.index} onClick={() => handleClick(el.name)}>
+        <Button
+          key={el.index}
+          onClick={() => handleClick(el.name)}
+          className="cursor-pointer"
+        >
           {el.name}
         </Button>
       ))}

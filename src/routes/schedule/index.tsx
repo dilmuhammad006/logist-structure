@@ -25,7 +25,6 @@ const sonners = [
   },
 ];
 const handleToast = (type: string) => {
-  console.log("as");
   if (type === "default") toast("Default toast");
   else if (type === "success") toast.success("Success toast");
   else if (type === "error") toast.error("Error toast");

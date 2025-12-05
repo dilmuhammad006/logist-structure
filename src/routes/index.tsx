@@ -1,8 +1,17 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from "@/components/ui/alert-dialog";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
 import { Button } from "@/components/ui/button";
-
 export const Route = createFileRoute("/")({
   component: TabsDemo,
 });
@@ -45,9 +54,8 @@ const tabs = [
   },
 ];
 export default function TabsDemo() {
-  
   return (
-    <div className="w-full max-w-md p-6">
+    <div className="w-full max-w-full p-6">
       <Tabs defaultValue="explore">
         <TabsList>
           {tabs.map((tab) => (
@@ -59,7 +67,7 @@ export default function TabsDemo() {
         {tabs.map((tab) => (
           <TabsContent key={tab.value} value={tab.value} className="mt-6">
             <div className="min-h-[100px] flex items-start">
-              <p className="text-muted-foreground text-sm">{tab.content}</p>
+              <div className="text-muted-foreground text-sm">{tab.content}</div>
             </div>
           </TabsContent>
         ))}

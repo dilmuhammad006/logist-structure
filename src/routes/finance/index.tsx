@@ -18,11 +18,13 @@ function RouteComponent() {
   return (
     <Table className="border">
       <TableHeader>
-        <TableHead>ID</TableHead>
-        <TableHead>Name</TableHead>
-        <TableHead>Age</TableHead>
-        <TableHead>Job</TableHead>
-        <TableHead>Salary</TableHead>
+        <TableRow>
+          <TableHead>ID</TableHead>
+          <TableHead>Name</TableHead>
+          <TableHead>Age</TableHead>
+          <TableHead>Job</TableHead>
+          <TableHead>Salary</TableHead>
+        </TableRow>
       </TableHeader>
       <TableBody>
         {users.map((el) => (
